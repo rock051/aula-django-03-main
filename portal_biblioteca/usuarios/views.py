@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_django #importe também o login
+from django.contrib.auth import logout as logout_django
 
 def login(request):
     if request.method == "GET":
@@ -35,3 +36,9 @@ def cadastro(request):
         user.save()
 
         return HttpResponse('Usuário cadastrado com sucesso')
+    
+def logout(request):
+    logout_django(request)
+    return HttpResponse('Usuario deslogado do sistema!')    
+    
+    
