@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Livro    # adicione esta importação
 from .models import TCC    # adicione esta importação
+from django.contrib.auth.decorators import login_required
 
 def principal(request):
     template = loader.get_template('principal.html')
@@ -22,6 +23,7 @@ def tccs(request):         # atualize esta função
         'tccs': tccs,
     }
     return HttpResponse(template.render(context, request))
+
 def tcc_detalhes(request, id):
     tcc = TCC.objects.get(id=id)
     template = loader.get_template('tcc_detalhes.html')
@@ -29,6 +31,8 @@ def tcc_detalhes(request, id):
         'tcc': tcc,
     }
     return HttpResponse(template.render(context, request))
+
+@login_required(login_url="/auth/login")
 def dashboard(request):
     template = loader.get_template('dashboard.html')
     return HttpResponse(template.render())
