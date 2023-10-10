@@ -35,4 +35,13 @@ def tcc_detalhes(request, id):
 @login_required(login_url="/auth/login")
 def dashboard(request):
     template = loader.get_template('dashboard.html')
-    return HttpResponse(template.render())
+    # Você pode acessar o usuário logado através de request.user
+    user = request.user
+    # Agora você pode fazer qualquer coisa com o objeto 'user', como acessar seus campos, por exemplo:
+    username = user.username
+    email = user.email
+    context = {
+        'usuario': username,
+        'email': email,
+    }
+    return HttpResponse(template.render(context, request))
