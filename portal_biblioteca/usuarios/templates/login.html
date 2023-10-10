@@ -1,1 +1,23 @@
-<h1>Login</h1>
+{% extends "base.html" %}
+
+{% block titulo %}
+    Portal Biblioteca - Login
+{% endblock %}
+
+{% block conteudo %}
+    <div class="mycard">
+        <h1>Login</h1>
+        <center>
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            Usuário: <input type="text" placeholder="Usuário ..." name="usuario">
+            <br>
+            <br>
+            Senha: <input type="password" placeholder="Senha ..." name="senha">
+            <br>
+            <br>
+            <input type="submit" value="Logar">
+        </form>
+        </center>
+    </div>
+{% endblock %}
