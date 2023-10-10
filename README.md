@@ -1,5 +1,7 @@
 # Aula Djando 03 - Sistema para Portal Biblioteca
 
+segui o Tutorial : https://github.com/ufla-prog-web/aula-django-03/
+
 <p align="center">
   <a href="#">
     <img src="https://img.shields.io/badge/Aula-Biblioteca-brightgreen.svg" alt="Aula-Biblioteca">
